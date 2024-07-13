@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { RiArrowDropDownLine, RiGiftFill } from "react-icons/ri";
-
+import ReferModal from "./ReferModal";
 function MainContent() {
   const [showMore, setShowMore] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   const programs = [
     {
@@ -46,27 +51,29 @@ function MainContent() {
     <div className="flex-1 p-6">
       <div className="bg-white rounded-lg shadow-lg border border-gray-200 pb-4 md:pb-2">
         <div className="p-6">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-[#1A73E8] text-white">
-                <th className="p-4">Programs</th>
-                <th className="p-4">Referrer Bonus</th>
-                <th className="p-4">Referee Bonus</th>
-              </tr>
-            </thead>
-            <tbody>
-              {programs.map((program, index) => (
-                <tr key={index} className="hover:bg-gray-100 transition duration-300">
-                  <td className="border-t p-4 flex items-center">
-                    <RiGiftFill className="text-blue-500 mr-2" />
-                    {program.name}
-                  </td>
-                  <td className="border-t p-4">{program.referrerBonus}</td>
-                  <td className="border-t p-4">{program.refereeBonus}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-[#1A73E8] text-white">
+                  <th className="p-4">Programs</th>
+                  <th className="p-4">Referrer Bonus</th>
+                  <th className="p-4">Referee Bonus</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {programs.map((program, index) => (
+                  <tr key={index} className="hover:bg-gray-100 transition duration-300">
+                    <td className="border-t p-4 flex items-center">
+                      <RiGiftFill className="text-blue-500 mr-2" />
+                      {program.name}
+                    </td>
+                    <td className="border-t p-4">{program.referrerBonus}</td>
+                    <td className="border-t p-4">{program.refereeBonus}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           <div className="flex justify-center mt-6">
             <button
@@ -79,12 +86,18 @@ function MainContent() {
         </div>
 
         <div className="flex justify-center mt-8">
-          <button className="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition duration-300">
+          <button
+            onClick={toggleModal}
+            className="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition duration-300"
+          >
             Refer Now
           </button>
         </div>
       </div>
+
+      <ReferModal isOpen={isModalOpen} onClose={toggleModal} />
     </div>
+     
   );
 }
 
