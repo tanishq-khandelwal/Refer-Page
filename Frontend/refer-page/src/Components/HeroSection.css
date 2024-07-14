@@ -1,0 +1,72 @@
+/* HeroSection.css */
+
+.hero-section {
+    padding: 6rem 0; /* Adjust padding as needed */
+    background-color: #f3f4f6; /* Fallback for older browsers */
+  }
+  
+  .icon-block {
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .icon {
+    transition: color 0.3s ease;
+  }
+  
+  .icon-block:hover {
+    transform: scale(1.05); /* Scale up on hover */
+  }
+  
+  /* Responsive grid layout */
+  @media (min-width: 768px) {
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr)); /* Single column layout */
+    }
+  
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr)); /* Three column layout */
+    }
+  
+    .icon-block {
+      height: 200px; /* Increased box height */
+      width: 80%; /* Reduced width */
+      margin: 0 auto; /* Center horizontally */
+    }
+  
+    .arrow-icon {
+      margin: 0 auto; /* Center arrow */
+    }
+  }
+  
+  /* Individual icon block styles */
+  .icon-block:nth-child(1) {
+    background-image: linear-gradient(to bottom right, #1a202c, #2d3748); /* Blue gradient */
+  }
+  
+  .icon-block:nth-child(2) {
+    background-image: linear-gradient(to bottom right, #047857, #065f46); /* Green gradient */
+  }
+  
+  .icon-block:nth-child(3) {
+    background-image: linear-gradient(to bottom right, #6b46c1, #7c3aed); /* Purple gradient */
+  }
+  
+  .text-white {
+    color: #fff; /* White text color */
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  }
+  
+  .rounded-lg {
+    border-radius: 1rem; /* Rounded corners */
+  }
+  
+  /* Icon size adjustments */
+  .text-4xl {
+    font-size: 2.25rem; /* Adjust icon size */
+  }
+  
