@@ -18,7 +18,7 @@ const ReferModal = ({ isOpen, onClose }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/addReferal', {
+      const response = await axios.post('https://refer-page.onrender.com/api/v1/addReferal', {
         user_name: userName,
         refree_name: referralName,
         user_email: userEmail,
